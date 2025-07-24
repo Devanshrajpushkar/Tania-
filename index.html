@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CG1D3KFRLJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CG1D3KFRLJ');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Special Someone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #e2c1f0, #c2e9fb);
+            color: #5a3a5c;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.4) 1px, transparent 2px),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.4) 1px, transparent 2px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(154, 96, 212, 0.3);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .container::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff6b9d" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            background-size: contain;
+            opacity: 0;
+            animation: fall 10s linear infinite;
+        }
+        
+        header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #ff6b9d;
+            text-shadow: 2px 2px 4px rgba(154, 96, 212, 0.2);
+            margin: 20px 0;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        
+        .profile-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInScale 1s ease-out 1s forwards;
+        }
+        
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(154, 96, 212, 0.3);
+        }
+        
+        .profile-container::before,
+        .profile-container::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid #ff6b9d;
+            animation: pulse 3s infinite;
+            opacity: 0.7;
+        }
+        
+        .profile-container::after {
+            animation-delay: 1.5s;
+            border-color: #9a60d4;
+        }
+        
+        .video-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(154, 96, 212, 0.3);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+        }
+        
+        #birthdayVideo {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-controls {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .video-controls:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .video-controls i {
+            font-size: 20px;
+            color: #ff6b9d;
+        }
+        
+        .message {
+            background: linear-gradient(135deg, #f8f0ff, #fff0f8);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(154, 96, 212, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 2s forwards;
+            position: relative;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .message::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: rgba(255, 107, 157, 0.2);
+            line-height: 1;
+        }
+        
+        .message p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .gift-message {
+            font-size: 1.5rem;
+            color: #9a60d4;
+            margin: 30px 0;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2.5s forwards;
+        }
+        
+        .gift-message span {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            margin: 0 5px;
+        }
+        
+        .distance-note {
+            font-size: 1rem;
+            color: #7a5a82;
+            margin-top: 30px;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3s forwards;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(154, 96, 212, 0.2);
+            color: #7a5a82;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3.5s forwards;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .profile-container {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .message p {
+                font-size: 1.2rem;
+            }
+            
+            .gift-message {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .profile-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .message p {
+                font-size: 1.1rem;
+            }
+            
+            .gift-message {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Happy Birthday! <br> Dearest Tania💖</h1>
+        </header>
+        
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Beautiful Birthday Girl" class="profile-img">
+        </div>
+        
+        <div class="video-container">
+            <video id="birthdayVideo" autoplay loop muted>
+                <source src="1a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls" id="videoMuteBtn">
+                <i>🔇</i>
+            </div>
+        </div>
+        
+        <div class="message">
+          <p>Hope, aap, aapka bhai aur parents sab ache hain.🙃</p>
+            <p>I know everyone probably sends you the usual birthday wishes today aur han aap wo sab deserve karti ho.😇</p>
+             <p> But for me, it’s more than that.
+                I genuinely wish for your happiness, not just today, but every step of your journey ahead. Whether it’s
+                CDS, Public Services, ya jisme bhi aap jana chahti ho. I hope you succeed in any field you choose. 😇 💭</p>
+            
+            <p>I don’t really celebrate my own birthday… but when it is the birthday of someone who means something to me, I really feel good.😇
+Toh han, have the best day ever. You truly deserve it.💫</p>
+<p>You bring light to my world like no one else. ✨</p>
+<p> Hope, I come in your mind too sometimes, even a little. </p>
+
+
+        </div>
+        
+        <div class="gift-message">
+            <span>I</span><span>couldn't</span><span>send</span><span>a</span><span>gift,</span><span>so</span><span>made</span><span>this</span><span>website</span><span>instead</span><span>💌🎁</span>
+        </div>
+        
+        <p class="distance-note">Distance means so little when someone means so much ❤️</p>
+        
+        <footer>
+            <p> Made with love and heartfelt wishes.   </p>
+            <br> Devansh Raj Pushkar😇
+        </footer>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="3.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating hearts
+            function createHearts() {
+                const container = document.body;
+                const heartCount = 30;
+                
+                for (let i = 0; i < heartCount; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    
+                    // Random properties
+                    const size = Math.random() * 20 + 10;
+                    const posX = Math.random() * 100;
+                    const delay = Math.random() * 10;
+                    const duration = Math.random() * 10 + 10;
+                    
+                    heart.style.width = `${size}px`;
+                    heart.style.height = `${size}px`;
+                    heart.style.left = `${posX}%`;
+                    heart.style.animationDelay = `${delay}s`;
+                    heart.style.animationDuration = `${duration}s`;
+                    
+                    container.appendChild(heart);
+                }
+            }
+            
+            // Video mute/unmute functionality
+            const video = document.getElementById('birthdayVideo');
+            const muteBtn = document.getElementById('videoMuteBtn');
+            
+            muteBtn.addEventListener('click', function() {
+                if (video.muted) {
+                    video.muted = false;
+                    muteBtn.innerHTML = '<i>🔊</i>';
+                } else {
+                    video.muted = true;
+                    muteBtn.innerHTML = '<i>🔇</i>';
+                }
+            });
+            
+            // Background music with user interaction requirement
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            let musicStarted = false;
+            
+            // Start music on first user interaction
+            document.body.addEventListener('click', function startMusic() {
+                if (!musicStarted) {
+                    backgroundMusic.play()
+                        .then(() => {
+                            musicStarted = true;
+                        })
+                        .catch(e => {
+                            console.log("Autoplay prevented:", e);
+                        });
+                    document.body.removeEventListener('click', startMusic);
+                }
+            });
+            
+            // Create the floating hearts
+            createHearts();
+        });
+    </script>
+</body>
+</html>
